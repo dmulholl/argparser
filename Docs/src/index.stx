@@ -1,6 +1,8 @@
 ---
-meta title: ArgParse &mdash; an argument-parsing library for Swift
 title: Home
+meta title: ArgParse &mdash; an argument-parsing library for Swift
+meta description: >
+    ArgParse is an argument-parsing library designed for building elegant command-line interfaces.
 ---
 
 ArgParse is an argument-parsing library designed for building elegant command-line interfaces.
