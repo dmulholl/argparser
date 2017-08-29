@@ -1,6 +1,6 @@
 # ArgParse
 
-ArgParse is an argument-parsing library for Swift 4. It features:
+ArgParse is an argument-parsing library designed for building elegant command-line interfaces. Its features include:
 
 * Long-form boolean flags with single-character shortcuts: `--flag`, `-f`.
 
