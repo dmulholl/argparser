@@ -8,7 +8,7 @@ title: API
 
 You can add ArgParse to your application as a dependency using the Swift Package Manager. The repository url is:
 
-    https://github.com/dmulholland/argparse.git
+    https://github.com/dmulholland/ArgParse.git
 
 Alternatively, you can add the single public-domain `ArgParse.swift` file directly to your application's source.
 
