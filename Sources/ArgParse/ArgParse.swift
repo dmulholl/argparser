@@ -4,7 +4,7 @@
 //
 // Author: Darren Mulholland <darren@mulholland.xyz>
 // License: Public Domain
-// Version: 0.1.0
+// Version: 0.1.1
 // ---------------------------------------------------------------------------
 
 import Foundation
@@ -479,6 +479,7 @@ public class ArgParser {
         // Do we have an option of the form -n=value?
         if arg.contains("=") {
             parseEqualsOption(prefix: "-", arg: arg)
+            return
         }
 
         // We examine each character individually to support condensed options
