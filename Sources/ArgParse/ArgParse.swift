@@ -372,23 +372,21 @@ public class ArgParser {
 
     /// Parse a stream of string arguments.
     private func parseStream(_ stream: ArgStream) {
-
-        // Switch to turn off option parsing if we encounter '--'.
         var parsing = true
+        var is_first_arg = true
 
         // Loop while we have arguments to process.
         while stream.hasNext() {
             let arg = stream.next()
 
-            // If option parsing has been turned off, simply add the argument
-            // to the array of positionals.
+            // If parsing has been turned off, simply add the argument to the
+            // array of positionals.
             if !parsing {
                 arguments.append(arg)
-                continue
             }
 
             // If we encounter a -- argument, turn off option parsing.
-            if arg == "--" {
+            else if arg == "--" {
                 parsing = false
             }
 
@@ -409,14 +407,14 @@ public class ArgParser {
             }
 
             // Is the argument a registered command?
-            else if let cmdParser = commands[arg] {
+            else if is_first_arg, let cmdParser = commands[arg] {
                 command = arg
                 cmdParser.parseStream(stream)
                 cmdParser.callback?(cmdParser)
             }
 
             // Is the argument the automatic 'help' command?
-            else if arg == "help" {
+            else if is_first_arg && arg == "help" {
                 if stream.hasNext() {
                     let name = stream.next()
                     if let cmdParser = commands[name] {
@@ -434,6 +432,8 @@ public class ArgParser {
             else {
                 arguments.append(arg)
             }
+
+            is_first_arg = false
         }
     }
 
