@@ -142,7 +142,7 @@ An option's internal array of values can be retrieved from the parser instance u
 
 ## Retrieve Positional Arguments
 
-The methods below provide access to positional arguments identified by the parser.
+Options can be preceded, followed, or interspaced with positional arguments.
 
 
 ||  `func getArgs() -> [String]`  ||
