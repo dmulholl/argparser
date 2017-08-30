@@ -93,6 +93,20 @@ class ArgParseTests: XCTestCase {
         XCTAssert(parser.getString("string") == "value")
     }
 
+    func testStringLongSingleEquals() {
+        let parser = ArgParser()
+        parser.newString("string s")
+        parser.parse(["--string=value"])
+        XCTAssert(parser.getString("string") == "value")
+    }
+
+    func testStringShortSingleEquals() {
+        let parser = ArgParser()
+        parser.newString("string s")
+        parser.parse(["-s=value"])
+        XCTAssert(parser.getString("string") == "value")
+    }
+
     func testStringLongMultiple() {
         let parser = ArgParser()
         parser.newString("string s")
@@ -152,6 +166,20 @@ class ArgParseTests: XCTestCase {
         XCTAssert(parser.getInt("int") == 123)
     }
 
+    func testIntLongSingleEquals() {
+        let parser = ArgParser()
+        parser.newInt("int i")
+        parser.parse(["--int=123"])
+        XCTAssert(parser.getInt("int") == 123)
+    }
+
+    func testIntShortSingleEquals() {
+        let parser = ArgParser()
+        parser.newInt("int i")
+        parser.parse(["-i=123"])
+        XCTAssert(parser.getInt("int") == 123)
+    }
+
     func testIntLongMultiple() {
         let parser = ArgParser()
         parser.newInt("int i")
@@ -208,6 +236,20 @@ class ArgParseTests: XCTestCase {
         let parser = ArgParser()
         parser.newDouble("double d")
         parser.parse(["-d", "123"])
+        XCTAssert(parser.getDouble("double") == 123.0)
+    }
+
+    func testDoubleLongSingleEquals() {
+        let parser = ArgParser()
+        parser.newDouble("double d")
+        parser.parse(["--double=123"])
+        XCTAssert(parser.getDouble("double") == 123.0)
+    }
+
+    func testDoubleShortSingleEquals() {
+        let parser = ArgParser()
+        parser.newDouble("double d")
+        parser.parse(["-d=123"])
         XCTAssert(parser.getDouble("double") == 123.0)
     }
 
