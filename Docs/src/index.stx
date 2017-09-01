@@ -44,8 +44,15 @@ ArgParse is written in Swift 4, which is currently in beta. ArgParse itself is a
 
 ### Links
 
-* [Github Homepage](https://github.com/dmulholland/ArgParse)
-* [Online Documentation](http://mulholland.xyz/docs/argparse/)
+* [Github Homepage][github]
+* [Sample Application][sample]
+* [Online Documentation][docs]
+
+
+[github]: https://github.com/dmulholland/ArgParse
+[docs]: http://mulholland.xyz/docs/argparse/
+[sample]:
+    https://github.com/dmulholland/ArgParse/blob/master/Sources/ArgParseExample/main.swift
 
 
 
