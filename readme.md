@@ -2,7 +2,8 @@
 
 ArgParse is an argument-parsing library for Swift designed for building elegant command-line interfaces.
 
-Features include:
+
+#### Features
 
 * Long-form boolean flags with single-character shortcuts: `--flag`, `-f`.
 
@@ -17,6 +18,12 @@ Features include:
 
 * Support for git-style command interfaces with arbitrarily-nested commands.
 
-See the [documentation][docs] for details.
+
+#### Links
+
+* [Documentation][docs]
+* [Sample Application][sample]
+
 
 [docs]: http://mulholland.xyz/docs/argparse/
+[sample]: https://github.com/dmulholland/ArgParse/blob/master/Sources/ArgParseExample/main.swift
