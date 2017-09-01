@@ -25,5 +25,5 @@ ArgParse is an argument-parsing library for Swift designed for building elegant 
 * [Sample Application][sample]
 
 
-[docs]: http://mulholland.xyz/docs/argparse/
+[docs]: https://mulholland.xyz/docs/argparse/
 [sample]: https://github.com/dmulholland/ArgParse/blob/master/Sources/ArgParseExample/main.swift
