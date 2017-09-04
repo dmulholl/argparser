@@ -4,15 +4,23 @@
 //
 // Author: Darren Mulholland <darren@mulholland.xyz>
 // License: Public Domain
-// Version: 0.2.0
+// Version: 0.3.0
 // ---------------------------------------------------------------------------
 
 import Foundation
 
 
-/// Print an error message and exit.
+/// Write a string to standard error.
+fileprivate func writeStderr(_ string: String) {
+    if let data = string.data(using: .utf8) {
+        FileHandle.standardError.write(data)
+    }
+}
+
+
+/// Print an error message to standard error and exit.
 public func exitError(_ message: String) -> Never {
-    print("Error: " + message + ".")
+    writeStderr("Error: " + message + ".\n")
     exit(1)
 }
 
