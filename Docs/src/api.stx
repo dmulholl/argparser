@@ -109,12 +109,6 @@ Each option maintains an internal array of values --- the value of the option is
 An option's internal array of values can be retrieved from the parser instance using any of its registered aliases.
 
 
-||  `func getFlagList(_ name: String) -> [Bool]?`  ||
-
-    Returns the specified option's list of values.
-    Returns `nil` if `name` is not recognised as a registered option.
-
-
 ||  `func getDoubleList(_ name: String) -> [Double]?`  ||
 
     Returns the specified option's list of values.
