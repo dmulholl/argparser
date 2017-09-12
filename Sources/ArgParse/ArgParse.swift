@@ -241,15 +241,6 @@ public class ArgParser {
 
     /// Returns the specified option's list of values. Returns `nil` if `name`
     /// is not recognised as a registered option.
-    public func getFlagList(_ name: String) -> [Bool]? {
-        if let option = options[name] {
-            return option.bools
-        }
-        return nil
-    }
-
-    /// Returns the specified option's list of values. Returns `nil` if `name`
-    /// is not recognised as a registered option.
     public func getStringList(_ name: String) -> [String]? {
         if let option = options[name] {
             return option.strings
