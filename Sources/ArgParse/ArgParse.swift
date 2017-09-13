@@ -417,8 +417,7 @@ public class ArgParser {
                 if stream.hasNext() {
                     let name = stream.next()
                     if let cmdParser = commands[name] {
-                        print(cmdParser.helptext ?? "")
-                        exit(0)
+                        cmdParser.exitHelp()
                     } else {
                         exitError("'\(name)' is not a recognised command")
                     }
