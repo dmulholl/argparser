@@ -4,7 +4,7 @@
 //
 // Author: Darren Mulholland <darren@mulholland.xyz>
 // License: Public Domain
-// Version: 0.3.0
+// Version: 0.3.1
 // ---------------------------------------------------------------------------
 
 import Foundation
@@ -553,16 +553,16 @@ public class ArgParser {
     public func dump() {
         print("Options:")
         if options.count > 0 {
-            for (name, option) in options {
-                switch option.type {
+            for (name, opt) in options {
+                switch opt.type {
                 case .bool:
-                    print("  \(name): \(option.bools)")
+                    print("  \(name): (\(opt.fallbacks.bool)) \(opt.bools)")
                 case .string:
-                    print("  \(name): \(option.strings)")
+                    print("  \(name): (\(opt.fallbacks.string)) \(opt.strings)")
                 case .integer:
-                    print("  \(name): \(option.integers)")
+                    print("  \(name): (\(opt.fallbacks.int)) \(opt.integers)")
                 case .double:
-                    print("  \(name): \(option.doubles)")
+                    print("  \(name): (\(opt.fallbacks.double)) \(opt.doubles)")
                 }
             }
         } else {
