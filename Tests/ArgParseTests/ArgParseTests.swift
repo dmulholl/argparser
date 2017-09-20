@@ -1,6 +1,6 @@
-// -------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // Unit tests for the ArgParse library.
-// -------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
 import Foundation
 import XCTest
@@ -112,9 +112,9 @@ class ArgParseTests: XCTestCase {
         parser.newString("string s")
         parser.parse(["--string", "a", "--string", "b", "--string", "c"])
         XCTAssert(parser.lenList("string") == 3)
-        XCTAssert(parser.getStringList("string")![0] == "a")
-        XCTAssert(parser.getStringList("string")![1] == "b")
-        XCTAssert(parser.getStringList("string")![2] == "c")
+        XCTAssert(parser.getStringList("string")[0] == "a")
+        XCTAssert(parser.getStringList("string")[1] == "b")
+        XCTAssert(parser.getStringList("string")[2] == "c")
     }
 
     func testStringShortMultiple() {
@@ -122,9 +122,9 @@ class ArgParseTests: XCTestCase {
         parser.newString("string s")
         parser.parse(["-s", "a", "-s", "b", "-s", "c"])
         XCTAssert(parser.lenList("string") == 3)
-        XCTAssert(parser.getStringList("string")![0] == "a")
-        XCTAssert(parser.getStringList("string")![1] == "b")
-        XCTAssert(parser.getStringList("string")![2] == "c")
+        XCTAssert(parser.getStringList("string")[0] == "a")
+        XCTAssert(parser.getStringList("string")[1] == "b")
+        XCTAssert(parser.getStringList("string")[2] == "c")
     }
 
     // ---------------------------------------------------------------------
@@ -185,9 +185,9 @@ class ArgParseTests: XCTestCase {
         parser.newInt("int i")
         parser.parse(["--int", "1", "--int", "2", "--int", "3"])
         XCTAssert(parser.lenList("int") == 3)
-        XCTAssert(parser.getIntList("int")![0] == 1)
-        XCTAssert(parser.getIntList("int")![1] == 2)
-        XCTAssert(parser.getIntList("int")![2] == 3)
+        XCTAssert(parser.getIntList("int")[0] == 1)
+        XCTAssert(parser.getIntList("int")[1] == 2)
+        XCTAssert(parser.getIntList("int")[2] == 3)
     }
 
     func testIntShortMultiple() {
@@ -195,9 +195,9 @@ class ArgParseTests: XCTestCase {
         parser.newInt("int i")
         parser.parse(["-i", "1", "-i", "2", "-i", "3"])
         XCTAssert(parser.lenList("int") == 3)
-        XCTAssert(parser.getIntList("int")![0] == 1)
-        XCTAssert(parser.getIntList("int")![1] == 2)
-        XCTAssert(parser.getIntList("int")![2] == 3)
+        XCTAssert(parser.getIntList("int")[0] == 1)
+        XCTAssert(parser.getIntList("int")[1] == 2)
+        XCTAssert(parser.getIntList("int")[2] == 3)
     }
 
     // ---------------------------------------------------------------------
@@ -258,9 +258,9 @@ class ArgParseTests: XCTestCase {
         parser.newDouble("double d")
         parser.parse(["--double", "1", "--double", "2", "--double", "3"])
         XCTAssert(parser.lenList("double") == 3)
-        XCTAssert(parser.getDoubleList("double")![0] == 1.0)
-        XCTAssert(parser.getDoubleList("double")![1] == 2.0)
-        XCTAssert(parser.getDoubleList("double")![2] == 3.0)
+        XCTAssert(parser.getDoubleList("double")[0] == 1.0)
+        XCTAssert(parser.getDoubleList("double")[1] == 2.0)
+        XCTAssert(parser.getDoubleList("double")[2] == 3.0)
     }
 
     func testDoubleShortMultiple() {
@@ -268,9 +268,9 @@ class ArgParseTests: XCTestCase {
         parser.newDouble("double d")
         parser.parse(["-d", "1", "-d", "2", "-d", "3"])
         XCTAssert(parser.lenList("double") == 3)
-        XCTAssert(parser.getDoubleList("double")![0] == 1.0)
-        XCTAssert(parser.getDoubleList("double")![1] == 2.0)
-        XCTAssert(parser.getDoubleList("double")![2] == 3.0)
+        XCTAssert(parser.getDoubleList("double")[0] == 1.0)
+        XCTAssert(parser.getDoubleList("double")[1] == 2.0)
+        XCTAssert(parser.getDoubleList("double")[2] == 3.0)
     }
 
     // ---------------------------------------------------------------------

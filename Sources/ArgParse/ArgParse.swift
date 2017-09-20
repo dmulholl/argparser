@@ -1,11 +1,11 @@
-// ---------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // ArgParse is an argument-parsing library designed for building elegant
 // command line interfaces.
 //
 // Author: Darren Mulholland <darren@mulholland.xyz>
 // License: Public Domain
-// Version: 0.3.1
-// ---------------------------------------------------------------------------
+// Version: 0.4.0
+// -----------------------------------------------------------------------------
 
 import Foundation
 
@@ -160,110 +160,87 @@ public class ArgParser {
     // ---------------------------------------------------------------------
 
 
-    /// Returns true if the specified option was found while parsing. Returns
-    /// `nil` if `name` is not recognised as a registered option.
-    public func found(_ name: String) -> Bool? {
+    // Exits with an error message if 'name' is not a registered option.
+    private func getOption(_ name: String) -> Option {
         if let option = options[name] {
-            return option.found
+            return option
         }
-        return nil
+        exitError("'\(name)' is not a registered option")
     }
 
-    /// Returns the value of the specified boolean option. Returns `nil` if
-    /// `name` is not recognised as a registered option.
-    public func getFlag(_ name: String) -> Bool? {
-        if let option = options[name] {
-            if let value = option.bools.last {
-                return value
-            } else {
-                return option.fallbacks.bool
-            }
-        }
-        return nil
+    /// Returns true if the specified option was found while parsing.
+    public func found(_ name: String) -> Bool {
+        return getOption(name).found
     }
 
-    /// Returns the value of the specified string option. Returns `nil` if
-    /// `name` is not recognised as a registered option.
-    public func getString(_ name: String) -> String? {
-        if let option = options[name] {
-            if let value = option.strings.last {
-                return value
-            } else {
-                return option.fallbacks.string
-            }
+    /// Returns the value of the specified boolean option.
+    public func getFlag(_ name: String) -> Bool {
+        let option = getOption(name)
+        if let value = option.bools.last {
+            return value
+        } else {
+            return option.fallbacks.bool
         }
-        return nil
     }
 
-    /// Returns the value of the specified integer option. Returns `nil` if
-    /// `name` is not recognised as a registered option.
-    public func getInt(_ name: String) -> Int? {
-        if let option = options[name] {
-            if let value = option.integers.last {
-                return value
-            } else {
-                return option.fallbacks.int
-            }
+    /// Returns the value of the specified string option.
+    public func getString(_ name: String) -> String {
+        let option = getOption(name)
+        if let value = option.strings.last {
+            return value
+        } else {
+            return option.fallbacks.string
         }
-        return nil
     }
 
-    /// Returns the value of the specified floating-point option. Returns
-    /// `nil` if `name` is not recognised as a registered option.
-    public func getDouble(_ name: String) -> Double? {
-        if let option = options[name] {
-            if let value = option.doubles.last {
-                return value
-            } else {
-                return option.fallbacks.double
-            }
+    /// Returns the value of the specified integer option.
+    public func getInt(_ name: String) -> Int {
+        let option = getOption(name)
+        if let value = option.integers.last {
+            return value
+        } else {
+            return option.fallbacks.int
         }
-        return nil
     }
 
-    /// Returns the length of the specified option's list of values. Returns
-    /// `nil` if `name` is not recognised as a registered option.
-    public func lenList(_ name: String) -> Int? {
-        if let option = options[name] {
-            switch option.type {
-                case .bool:
-                    return option.bools.count
-                case .string:
-                    return option.strings.count
-                case .integer:
-                    return option.integers.count
-                case .double:
-                    return option.doubles.count
-            }
+    /// Returns the value of the specified floating-point option.
+    public func getDouble(_ name: String) -> Double {
+        let option = getOption(name)
+        if let value = option.doubles.last {
+            return value
+        } else {
+            return option.fallbacks.double
         }
-        return nil
     }
 
-    /// Returns the specified option's list of values. Returns `nil` if `name`
-    /// is not recognised as a registered option.
-    public func getStringList(_ name: String) -> [String]? {
-        if let option = options[name] {
-            return option.strings
+    /// Returns the length of the specified option's list of values.
+    public func lenList(_ name: String) -> Int {
+        let option = getOption(name)
+        switch option.type {
+            case .bool:
+                return option.bools.count
+            case .string:
+                return option.strings.count
+            case .integer:
+                return option.integers.count
+            case .double:
+                return option.doubles.count
         }
-        return nil
     }
 
-    /// Returns the specified option's list of values. Returns `nil` if `name`
-    /// is not recognised as a registered option.
-    public func getIntList(_ name: String) -> [Int]? {
-        if let option = options[name] {
-            return option.integers
-        }
-        return nil
+    /// Returns the specified option's list of values.
+    public func getStringList(_ name: String) -> [String] {
+        return getOption(name).strings
     }
 
-    /// Returns the specified option's list of values. Returns `nil` if `name`
-    /// is not recognised as a registered option.
-    public func getDoubleList(_ name: String) -> [Double]? {
-        if let option = options[name] {
-            return option.doubles
-        }
-        return nil
+    /// Returns the specified option's list of values.
+    public func getIntList(_ name: String) -> [Int] {
+        return getOption(name).integers
+    }
+
+    /// Returns the specified option's list of values.
+    public func getDoubleList(_ name: String) -> [Double] {
+        return getOption(name).doubles
     }
 
 
