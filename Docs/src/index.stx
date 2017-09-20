@@ -38,7 +38,7 @@ Alternatively, you can add the single public-domain `ArgParse.swift` file direct
 
 ### Status
 
-ArgParse is written in Swift 4, which is currently in beta. ArgParse itself is an alpha-stage project and breaking changes to its API are possible. Feedback is welcome.
+ArgParse is a beta-stage project and breaking changes to its API are possible. Feedback is welcome.
 
 
 
