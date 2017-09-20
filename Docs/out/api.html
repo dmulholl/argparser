@@ -150,48 +150,43 @@ Each option maintains an internal array of values &mdash; the value of the optio
 </p>
 <dl>
 <dt>
-<code>func found(_ name: String) -&gt; Bool?</code>
+<code>func found(_ name: String) -&gt; Bool</code>
 </dt>
 <dd>
 <p>
 Returns true if the specified option was found while parsing.
-Returns <code>nil</code> if <code>name</code> is not recognised as a registered option.
 </p>
 </dd>
 <dt>
-<code>func getFlag(_ name: String) -&gt; Bool?</code>
+<code>func getFlag(_ name: String) -&gt; Bool</code>
 </dt>
 <dd>
 <p>
 Returns the value of the specified boolean option.
-Returns <code>nil</code> if <code>name</code> is not recognised as a registered option.
 </p>
 </dd>
 <dt>
-<code>func getDouble(_ name: String) -&gt; Double?</code>
+<code>func getDouble(_ name: String) -&gt; Double</code>
 </dt>
 <dd>
 <p>
 Returns the value of the specified floating-point option.
-Returns <code>nil</code> if <code>name</code> is not recognised as a registered option.
 </p>
 </dd>
 <dt>
-<code>func getInt(_ name: String) -&gt; Int?</code>
+<code>func getInt(_ name: String) -&gt; Int</code>
 </dt>
 <dd>
 <p>
 Returns the value of the specified integer option.
-Returns <code>nil</code> if <code>name</code> is not recognised as a registered option.
 </p>
 </dd>
 <dt>
-<code>func getString(_ name: String) -&gt; String?</code>
+<code>func getString(_ name: String) -&gt; String</code>
 </dt>
 <dd>
 <p>
 Returns the value of the specified string option.
-Returns <code>nil</code> if <code>name</code> is not recognised as a registered option.
 </p>
 </dd>
 </dl>
@@ -203,39 +198,35 @@ An option's internal array of values can be retrieved from the parser instance u
 </p>
 <dl>
 <dt>
-<code>func getDoubleList(_ name: String) -&gt; [Double]?</code>
+<code>func getDoubleList(_ name: String) -&gt; [Double]</code>
 </dt>
 <dd>
 <p>
 Returns the specified option's list of values.
-Returns <code>nil</code> if <code>name</code> is not recognised as a registered option.
 </p>
 </dd>
 <dt>
-<code>func getIntList(_ name: String) -&gt; [Int]?</code>
+<code>func getIntList(_ name: String) -&gt; [Int]</code>
 </dt>
 <dd>
 <p>
 Returns the specified option's list of values.
-Returns <code>nil</code> if <code>name</code> is not recognised as a registered option.
 </p>
 </dd>
 <dt>
-<code>func getStringList(_ name: String) -&gt; [String]?</code>
+<code>func getStringList(_ name: String) -&gt; [String]</code>
 </dt>
 <dd>
 <p>
 Returns the specified option's list of values.
-Returns <code>nil</code> if <code>name</code> is not recognised as a registered option.
 </p>
 </dd>
 <dt>
-<code>func lenList(_ name: String) -&gt; Int?</code>
+<code>func lenList(_ name: String) -&gt; Int</code>
 </dt>
 <dd>
 <p>
 Returns the length of the specified option's list of values.
-Returns <code>nil</code> if <code>name</code> is not recognised as a registered option.
 </p>
 </dd>
 </dl>

@@ -73,34 +73,29 @@ An option's value can be retrieved from the parser instance using any of its reg
 Each option maintains an internal array of values --- the value of the option is the final value in the array or the fallback value if the array is empty.
 
 
-||  `func found(_ name: String) -> Bool?`  ||
+||  `func found(_ name: String) -> Bool`  ||
 
     Returns true if the specified option was found while parsing.
-    Returns `nil` if `name` is not recognised as a registered option.
 
 
-||  `func getFlag(_ name: String) -> Bool?`  ||
+||  `func getFlag(_ name: String) -> Bool`  ||
 
     Returns the value of the specified boolean option.
-    Returns `nil` if `name` is not recognised as a registered option.
 
 
-||  `func getDouble(_ name: String) -> Double?`  ||
+||  `func getDouble(_ name: String) -> Double`  ||
 
     Returns the value of the specified floating-point option.
-    Returns `nil` if `name` is not recognised as a registered option.
 
 
-||  `func getInt(_ name: String) -> Int?`  ||
+||  `func getInt(_ name: String) -> Int`  ||
 
     Returns the value of the specified integer option.
-    Returns `nil` if `name` is not recognised as a registered option.
 
 
-||  `func getString(_ name: String) -> String?`  ||
+||  `func getString(_ name: String) -> String`  ||
 
     Returns the value of the specified string option.
-    Returns `nil` if `name` is not recognised as a registered option.
 
 
 
@@ -109,28 +104,24 @@ Each option maintains an internal array of values --- the value of the option is
 An option's internal array of values can be retrieved from the parser instance using any of its registered aliases.
 
 
-||  `func getDoubleList(_ name: String) -> [Double]?`  ||
+||  `func getDoubleList(_ name: String) -> [Double]`  ||
 
     Returns the specified option's list of values.
-    Returns `nil` if `name` is not recognised as a registered option.
 
 
-||  `func getIntList(_ name: String) -> [Int]?`  ||
-
-    Returns the specified option's list of values.
-    Returns `nil` if `name` is not recognised as a registered option.
-
-
-||  `func getStringList(_ name: String) -> [String]?`  ||
+||  `func getIntList(_ name: String) -> [Int]`  ||
 
     Returns the specified option's list of values.
-    Returns `nil` if `name` is not recognised as a registered option.
 
 
-||  `func lenList(_ name: String) -> Int?`  ||
+||  `func getStringList(_ name: String) -> [String]`  ||
+
+    Returns the specified option's list of values.
+
+
+||  `func lenList(_ name: String) -> Int`  ||
 
     Returns the length of the specified option's list of values.
-    Returns `nil` if `name` is not recognised as a registered option.
 
 
 
