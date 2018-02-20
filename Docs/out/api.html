@@ -29,6 +29,7 @@
 <li><a href="index.html">Home</a></li>
 <li><a href="cli.html">CLI</a></li>
 <li><a href="api.html">API</a></li>
+<li><a href="https://github.com/dmulholland/ArgParse">Source</a></li>
 </ul>
       </nav>
     </header>
@@ -100,7 +101,7 @@ Register Options
 ArgParse supports long-form options, <code>--foo</code>, with single-character shortcuts, <code>-f</code>.
 </p>
 <p>
-An option can have an unlimited number of long and short-form aliases. Aliases are specified via the <code>name</code> parameter which accepts a string of space-separated alternatives, e.g. <code>"foo f"</code>.
+An option can have an unlimited number of long and short-form aliases. Aliases are specified via the <code>name</code> parameter which accepts a string of space-separated alternatives, e.g. <code>&quot;foo f&quot;</code>.
 </p>
 <p>
 Option values can be separated on the command line by either a space, <code>--foo 123</code>, or an equals symbol, <code>--foo=123</code>.
@@ -131,7 +132,7 @@ Register an integer option, optionally specifying a default value.
 </p>
 </dd>
 <dt>
-<code>func newString(_ name: String, fallback: String = "")</code>
+<code>func newString(_ name: String, fallback: String = &quot;&quot;)</code>
 </dt>
 <dd>
 <p>
