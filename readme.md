@@ -25,5 +25,5 @@ ArgParse is a Swift library for parsing command line arguments.
 * [Sample Application][sample]
 
 
-[docs]: https://mulholland.xyz/docs/argparse/
+[docs]: https://darrenmulholland.com/docs/argparse/
 [sample]: https://github.com/dmulholland/ArgParse/blob/master/Sources/ArgParseExample/main.swift

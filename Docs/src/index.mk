@@ -50,7 +50,7 @@ ArgParse is a beta-stage project and breaking changes to its API are possible. F
 
 
 [github]: https://github.com/dmulholland/ArgParse
-[docs]: http://mulholland.xyz/docs/argparse/
+[docs]: https://darrenmulholland.com/docs/argparse/
 [sample]:
     https://github.com/dmulholland/ArgParse/blob/master/Sources/ArgParseExample/main.swift
 
