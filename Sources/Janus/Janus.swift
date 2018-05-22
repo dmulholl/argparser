@@ -1,10 +1,10 @@
 // -----------------------------------------------------------------------------
-// ArgParse is an argument-parsing library designed for building elegant
+// Janus is an argument-parsing library designed for building elegant
 // command line interfaces.
 //
 // Author: Darren Mulholland <darren@mulholland.xyz>
 // License: Public Domain
-// Version: 0.4.0
+// Version: 0.5.0
 // -----------------------------------------------------------------------------
 
 import Foundation

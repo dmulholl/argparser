@@ -1,8 +1,8 @@
 // -----------------------------------------------------------------------------
-// A sample application demonstrating ArgParse in action.
+// A sample application demonstrating Janus in action.
 // -----------------------------------------------------------------------------
 
-import ArgParse
+import Janus
 
 // Callback function for the 'foo' command. This function will be called if
 // the command is found. The function recieves an ArgParser instance containing

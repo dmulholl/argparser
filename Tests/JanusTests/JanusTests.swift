@@ -1,12 +1,12 @@
 // -----------------------------------------------------------------------------
-// Unit tests for the ArgParse library.
+// Unit tests for the Janus library.
 // -----------------------------------------------------------------------------
 
 import Foundation
 import XCTest
-import ArgParse
+import Janus
 
-class ArgParseTests: XCTestCase {
+class JanusTests: XCTestCase {
 
     // ---------------------------------------------------------------------
     // Boolean options.

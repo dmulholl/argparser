@@ -1,11 +1,11 @@
 ---
 title: Home
-meta title: ArgParse &mdash; an argument-parsing library for Swift
+meta title: Janus &mdash; an argument-parsing library for Swift
 meta description: >
-    ArgParse is an argument-parsing library designed for building elegant command-line interfaces.
+    Janus is an argument-parsing library designed for building elegant command-line interfaces.
 ---
 
-ArgParse is an argument-parsing library designed for building elegant command-line interfaces.
+Janus is an argument-parsing library designed for building elegant command-line interfaces.
 
 
 
@@ -28,17 +28,17 @@ ArgParse is an argument-parsing library designed for building elegant command-li
 
 ### Installation
 
-You can add ArgParse to your application as a dependency using the Swift Package Manager. The repository url is:
+You can add Janus to your application as a dependency using the Swift Package Manager. The repository url is:
 
-    https://github.com/dmulholland/ArgParse.git
+    https://github.com/dmulholland/janus-swift.git
 
-Alternatively, you can add the single public-domain `ArgParse.swift` file directly to your application's source.
+Alternatively, you can add the single public-domain `Janus.swift` file directly to your application's source.
 
 
 
 ### Status
 
-ArgParse is a beta-stage project and breaking changes to its API are possible. Feedback is welcome.
+Janus is a beta-stage project and breaking changes to its API are possible. Feedback is welcome.
 
 
 
@@ -46,13 +46,10 @@ ArgParse is a beta-stage project and breaking changes to its API are possible. F
 
 * [Github Homepage][github]
 * [Sample Application][sample]
-* [Online Documentation][docs]
 
 
-[github]: https://github.com/dmulholland/ArgParse
-[docs]: https://darrenmulholland.com/docs/argparse/
-[sample]:
-    https://github.com/dmulholland/ArgParse/blob/master/Sources/ArgParseExample/main.swift
+[github]: https://github.com/dmulholland/janus-swift
+[sample]: https://github.com/dmulholland/janus-swift/blob/master/Sources/JanusExample/main.swift
 
 
 

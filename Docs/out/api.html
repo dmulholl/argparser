@@ -14,7 +14,7 @@
   <body class="node-api node">
 
     <header class="masthead">
-      <h1><a href="index.html">ArgParse</a></h1>
+      <h1><a href="index.html">Janus</a></h1>
       
         <p class="tagline">An argument-parsing library for Swift.</p>
       
@@ -29,7 +29,7 @@
 <li><a href="index.html">Home</a></li>
 <li><a href="cli.html">CLI</a></li>
 <li><a href="api.html">API</a></li>
-<li><a href="https://github.com/dmulholland/ArgParse">Source</a></li>
+<li><a href="https://github.com/dmulholland/janus-swift">Source</a></li>
 </ul>
       </nav>
     </header>
@@ -62,16 +62,16 @@
 </ul>
 <hr>
 <p>
-You can add ArgParse to your application as a dependency using the Swift Package Manager. The repository url is:
+You can add Janus to your application as a dependency using the Swift Package Manager. The repository url is:
 </p>
 <pre>
-https://github.com/dmulholland/ArgParse.git
+https://github.com/dmulholland/janus-swift.git
 </pre>
 <p>
-Alternatively, you can add the single public-domain <code>ArgParse.swift</code> file directly to your application's source.
+Alternatively, you can add the single public-domain <code>Janus.swift</code> file directly to your application's source.
 </p>
 <p>
-ArgParse is written in Swift 4.
+Janus is written in Swift 4.
 </p>
 <h2 id="basic-usage">
 Basic Usage
@@ -98,7 +98,7 @@ Parsed option values can be retrieved from the parser instance itself.
 Register Options
 </h2>
 <p>
-ArgParse supports long-form options, <code>--foo</code>, with single-character shortcuts, <code>-f</code>.
+Janus supports long-form options, <code>--foo</code>, with single-character shortcuts, <code>-f</code>.
 </p>
 <p>
 An option can have an unlimited number of long and short-form aliases. Aliases are specified via the <code>name</code> parameter which accepts a string of space-separated alternatives, e.g. <code>&quot;foo f&quot;</code>.
@@ -283,7 +283,7 @@ Returns the number of positional arguments.
 Commands
 </h2>
 <p>
-ArgParse supports git-style command interfaces with arbitrarily-nested commands. Register a command on a parser instance using the <code>newCmd()</code> method:
+Janus supports git-style command interfaces with arbitrarily-nested commands. Register a command on a parser instance using the <code>newCmd()</code> method:
 </p>
 <pre class="lang-swift pygments" data-lang="swift">
 <span class="kd">func</span> <span class="nf">newCmd</span><span class="p">(</span><span class="kc">_</span> <span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">helptext</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">callback</span><span class="p">:</span> <span class="p">(</span><span class="n">ArgParser</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">ArgParser</span>

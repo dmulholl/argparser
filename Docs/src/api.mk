@@ -6,13 +6,13 @@ title: API
 
 ---
 
-You can add ArgParse to your application as a dependency using the Swift Package Manager. The repository url is:
+You can add Janus to your application as a dependency using the Swift Package Manager. The repository url is:
 
-    https://github.com/dmulholland/ArgParse.git
+    https://github.com/dmulholland/janus-swift.git
 
-Alternatively, you can add the single public-domain `ArgParse.swift` file directly to your application's source.
+Alternatively, you can add the single public-domain `Janus.swift` file directly to your application's source.
 
-ArgParse is written in Swift 4.
+Janus is written in Swift 4.
 
 
 
@@ -38,7 +38,7 @@ Parsed option values can be retrieved from the parser instance itself.
 
 ## Register Options
 
-ArgParse supports long-form options, `--foo`, with single-character shortcuts, `-f`.
+Janus supports long-form options, `--foo`, with single-character shortcuts, `-f`.
 
 An option can have an unlimited number of long and short-form aliases. Aliases are specified via the `name` parameter which accepts a string of space-separated alternatives, e.g. `"foo f"`.
 
@@ -158,7 +158,7 @@ Options can be preceded, followed, or interspaced with positional arguments.
 
 ## Commands
 
-ArgParse supports git-style command interfaces with arbitrarily-nested commands. Register a command on a parser instance using the `newCmd()` method:
+Janus supports git-style command interfaces with arbitrarily-nested commands. Register a command on a parser instance using the `newCmd()` method:
 
 ::: swift
 

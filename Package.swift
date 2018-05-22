@@ -3,25 +3,25 @@
 import PackageDescription
 
 let package = Package(
-    name: "ArgParse",
+    name: "Janus",
     products: [
         .library(
-            name: "ArgParse",
-            targets: ["ArgParse"]
+            name: "Janus",
+            targets: ["Janus"]
         ),
     ],
     targets: [
         .target(
-            name: "ArgParse",
+            name: "Janus",
             dependencies: []
         ),
         .target(
-            name: "ArgParseExample",
-            dependencies: ["ArgParse"]
+            name: "JanusExample",
+            dependencies: ["Janus"]
         ),
         .testTarget(
-            name: "ArgParseTests",
-            dependencies: ["ArgParse"]
+            name: "JanusTests",
+            dependencies: ["Janus"]
         ),
     ]
 )

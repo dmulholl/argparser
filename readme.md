@@ -1,6 +1,6 @@
-# ArgParse
+# Janus
 
-ArgParse is a Swift library for parsing command line arguments.
+A Swift library for parsing command line arguments.
 
 
 #### Features
@@ -25,5 +25,5 @@ ArgParse is a Swift library for parsing command line arguments.
 * [Sample Application][sample]
 
 
-[docs]: https://darrenmulholland.com/docs/argparse/
-[sample]: https://github.com/dmulholland/ArgParse/blob/master/Sources/ArgParseExample/main.swift
+[docs]: https://darrenmulholland.com/docs/janus-swift/
+[sample]: https://github.com/dmulholland/janus-swift/blob/master/Sources/JanusExample/main.swift
