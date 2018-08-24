@@ -4,7 +4,7 @@
 //
 // Author: Darren Mulholland <darren@mulholland.xyz>
 // License: Public Domain
-// Version: 0.5.0
+// Version: 0.6.0
 // -----------------------------------------------------------------------------
 
 import Foundation
@@ -518,7 +518,9 @@ public class ArgParser {
     public func dump() {
         print("Options:")
         if options.count > 0 {
-            for (name, opt) in options {
+            let names = options.keys.sorted()
+            for name in names {
+                let opt = options[name]!
                 switch opt.type {
                 case .bool:
                     print("  \(name): (\(opt.fallbacks.bool)) \(opt.bools)")

@@ -4,9 +4,9 @@
 
 import Janus
 
-// Callback function for the 'foo' command. This function will be called if
-// the command is found. The function recieves an ArgParser instance containing
-// the command's parsed arguments. Here we simply dump it to stdout.
+// Callback function for the 'foo' command. This function will be called if the
+// command is found. The function recieves an ArgParser instance containing the
+// command's parsed arguments. Here we simply dump it to stdout.
 func callback(parser: ArgParser) {
     print("---------- callback ----------")
     parser.dump()
