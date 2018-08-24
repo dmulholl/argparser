@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
-// Janus is an argument-parsing library designed for building elegant
-// command line interfaces.
+// Janus is an argument-parsing library designed for building elegant command
+// line interfaces.
 //
 // Author: Darren Mulholland <darren@mulholland.xyz>
 // License: Public Domain
@@ -113,11 +113,9 @@ public class ArgParser {
         self.version = version
     }
 
-
     // ---------------------------------------------------------------------
     // Register options.
     // ---------------------------------------------------------------------
-
 
     /// Register a boolean option with a default value of false.
     public func newFlag(_ name: String) {
@@ -154,11 +152,9 @@ public class ArgParser {
         }
     }
 
-
     // ---------------------------------------------------------------------
     // Retrieve option values.
     // ---------------------------------------------------------------------
-
 
     // Exits with an error message if 'name' is not a registered option.
     private func getOption(_ name: String) -> Option {
@@ -243,11 +239,9 @@ public class ArgParser {
         return getOption(name).doubles
     }
 
-
     // ---------------------------------------------------------------------
     // Commands.
     // ---------------------------------------------------------------------
-
 
     /// Register a command with its associated help text and callback
     /// function.
@@ -284,11 +278,9 @@ public class ArgParser {
         return parent
     }
 
-
     // ---------------------------------------------------------------------
     // Positional arguments.
     // ---------------------------------------------------------------------
-
 
     /// Returns true if the parser has found one or more positional arguments.
     public func hasArgs() -> Bool {
@@ -333,11 +325,9 @@ public class ArgParser {
         return doubles
     }
 
-
     // ---------------------------------------------------------------------
     // Parse arguments.
     // ---------------------------------------------------------------------
-
 
     /// Parse an array of string arguments. Defaults to parsing the
     /// application's command line arguments.
@@ -508,11 +498,9 @@ public class ArgParser {
         option.trySet(with: value)
     }
 
-
     // ---------------------------------------------------------------------
     // Utility functions.
     // ---------------------------------------------------------------------
-
 
     /// Print the parser's help text and exit.
     public func exitHelp() -> Never {
