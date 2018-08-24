@@ -1,4 +1,4 @@
-# Janus
+# Janus for Swift
 
 A Swift library for parsing command line arguments.
 
