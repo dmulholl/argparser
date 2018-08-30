@@ -4,7 +4,7 @@
 //
 // Author: Darren Mulholland <dmulholl@tcd.ie>
 // License: Public Domain
-// Version: 0.6.0
+// Version: 1.0.0
 // -----------------------------------------------------------------------------
 
 import Foundation
