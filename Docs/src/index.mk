@@ -36,12 +36,6 @@ Alternatively, you can add the single public-domain `Janus.swift` file directly 
 
 
 
-### Status
-
-Janus is a beta-stage project and breaking changes to its API are possible. Feedback is welcome.
-
-
-
 ### Links
 
 * [Github Homepage][github]
