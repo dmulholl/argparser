@@ -25,5 +25,5 @@ Janus is a simple argument-parsing library designed for building elegant command
 * [Sample Application][sample]
 
 
-[docs]: https://darrenmulholland.com/docs/janus-swift/
-[sample]: https://github.com/dmulholland/janus-swift/blob/master/Sources/JanusExample/main.swift
+[docs]: http://www.dmulholl.com/docs/janus-swift/
+[sample]: https://github.com/dmulholl/janus-swift/blob/master/Sources/JanusExample/main.swift
