@@ -30,7 +30,7 @@ Janus is an argument-parsing library designed for building elegant command-line 
 
 You can add Janus to your application as a dependency using the Swift Package Manager. The repository url is:
 
-    https://github.com/dmulholland/janus-swift.git
+    https://github.com/dmulholl/janus-swift.git
 
 Alternatively, you can add the single public-domain `Janus.swift` file directly to your application's source.
 
@@ -42,8 +42,8 @@ Alternatively, you can add the single public-domain `Janus.swift` file directly 
 * [Sample Application][sample]
 
 
-[github]: https://github.com/dmulholland/janus-swift
-[sample]: https://github.com/dmulholland/janus-swift/blob/master/Sources/JanusExample/main.swift
+[github]: https://github.com/dmulholl/janus-swift
+[sample]: https://github.com/dmulholl/janus-swift/blob/master/Sources/JanusExample/main.swift
 
 
 
