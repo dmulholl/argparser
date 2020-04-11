@@ -5,7 +5,7 @@
     <title>API</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="fonts.css">
-    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="graphite.css">
     <link rel="stylesheet" href="pygments.css">
     
     
@@ -108,6 +108,7 @@ An option can have an unlimited number of long and short-form aliases. Aliases a
 Option values can be separated on the command line by either a space, <code>--foo 123</code>, or an equals symbol, <code>--foo=123</code>.
 </p>
 <dl>
+<div>
 <dt>
 <code>func newFlag(_ name: String)</code>
 </dt>
@@ -116,6 +117,8 @@ Option values can be separated on the command line by either a space, <code>--fo
 Register a flag (a boolean option) with a default value of <code>false</code>. Flag options take no arguments but are either present (<code>true</code>) or absent (<code>false</code>).
 </p>
 </dd>
+</div>
+<div>
 <dt>
 <code>func newDouble(_ name: String, fallback: Double = 0.0)</code>
 </dt>
@@ -124,6 +127,8 @@ Register a flag (a boolean option) with a default value of <code>false</code>. F
 Register a floating-point option, optionally specifying a default value.
 </p>
 </dd>
+</div>
+<div>
 <dt>
 <code>func newInt(_ name: String, fallback: Int = 0)</code>
 </dt>
@@ -132,6 +137,8 @@ Register a floating-point option, optionally specifying a default value.
 Register an integer option, optionally specifying a default value.
 </p>
 </dd>
+</div>
+<div>
 <dt>
 <code>func newString(_ name: String, fallback: String = &quot;&quot;)</code>
 </dt>
@@ -140,6 +147,7 @@ Register an integer option, optionally specifying a default value.
 Register a string option, optionally specifying a default value.
 </p>
 </dd>
+</div>
 </dl>
 <h2 id="retrieve-a-single-value">
 Retrieve A Single Value
@@ -151,6 +159,7 @@ An option's value can be retrieved from the parser instance using any of its reg
 Each option maintains an internal array of values &mdash; the value of the option is the final value in the array or the fallback value if the array is empty.
 </p>
 <dl>
+<div>
 <dt>
 <code>func found(_ name: String) -&gt; Bool</code>
 </dt>
@@ -159,6 +168,8 @@ Each option maintains an internal array of values &mdash; the value of the optio
 Returns true if the specified option was found while parsing.
 </p>
 </dd>
+</div>
+<div>
 <dt>
 <code>func getFlag(_ name: String) -&gt; Bool</code>
 </dt>
@@ -167,6 +178,8 @@ Returns true if the specified option was found while parsing.
 Returns the value of the specified boolean option.
 </p>
 </dd>
+</div>
+<div>
 <dt>
 <code>func getDouble(_ name: String) -&gt; Double</code>
 </dt>
@@ -175,6 +188,8 @@ Returns the value of the specified boolean option.
 Returns the value of the specified floating-point option.
 </p>
 </dd>
+</div>
+<div>
 <dt>
 <code>func getInt(_ name: String) -&gt; Int</code>
 </dt>
@@ -183,6 +198,8 @@ Returns the value of the specified floating-point option.
 Returns the value of the specified integer option.
 </p>
 </dd>
+</div>
+<div>
 <dt>
 <code>func getString(_ name: String) -&gt; String</code>
 </dt>
@@ -191,6 +208,7 @@ Returns the value of the specified integer option.
 Returns the value of the specified string option.
 </p>
 </dd>
+</div>
 </dl>
 <h2 id="retrieve-multiple-values">
 Retrieve Multiple Values
@@ -199,6 +217,7 @@ Retrieve Multiple Values
 An option's internal array of values can be retrieved from the parser instance using any of its registered aliases.
 </p>
 <dl>
+<div>
 <dt>
 <code>func getDoubleList(_ name: String) -&gt; [Double]</code>
 </dt>
@@ -207,6 +226,8 @@ An option's internal array of values can be retrieved from the parser instance u
 Returns the specified option's list of values.
 </p>
 </dd>
+</div>
+<div>
 <dt>
 <code>func getIntList(_ name: String) -&gt; [Int]</code>
 </dt>
@@ -215,6 +236,8 @@ Returns the specified option's list of values.
 Returns the specified option's list of values.
 </p>
 </dd>
+</div>
+<div>
 <dt>
 <code>func getStringList(_ name: String) -&gt; [String]</code>
 </dt>
@@ -223,6 +246,8 @@ Returns the specified option's list of values.
 Returns the specified option's list of values.
 </p>
 </dd>
+</div>
+<div>
 <dt>
 <code>func lenList(_ name: String) -&gt; Int</code>
 </dt>
@@ -231,6 +256,7 @@ Returns the specified option's list of values.
 Returns the length of the specified option's list of values.
 </p>
 </dd>
+</div>
 </dl>
 <h2 id="retrieve-positional-arguments">
 Retrieve Positional Arguments
@@ -239,6 +265,7 @@ Retrieve Positional Arguments
 Options can be preceded, followed, or interspaced with positional arguments.
 </p>
 <dl>
+<div>
 <dt>
 <code>func getArgs() -&gt; [String]</code>
 </dt>
@@ -247,6 +274,8 @@ Options can be preceded, followed, or interspaced with positional arguments.
 Returns the positional arguments as an array of strings.
 </p>
 </dd>
+</div>
+<div>
 <dt>
 <code>func getArgsAsDoubles() -&gt; [Double]</code>
 </dt>
@@ -255,6 +284,8 @@ Returns the positional arguments as an array of strings.
 Attempts to parse and return the positional arguments as an array of doubles. Exits with an error message on failure.
 </p>
 </dd>
+</div>
+<div>
 <dt>
 <code>func getArgsAsInts() -&gt; [Int]</code>
 </dt>
@@ -263,6 +294,8 @@ Attempts to parse and return the positional arguments as an array of doubles. Ex
 Attempts to parse and return the positional arguments as an array of integers. Exits with an error message on failure.
 </p>
 </dd>
+</div>
+<div>
 <dt>
 <code>func hasArgs() -&gt; Bool</code>
 </dt>
@@ -271,6 +304,8 @@ Attempts to parse and return the positional arguments as an array of integers. E
 Returns true if at least one positional argument has been found.
 </p>
 </dd>
+</div>
+<div>
 <dt>
 <code>func numArgs() -&gt; Int</code>
 </dt>
@@ -279,6 +314,7 @@ Returns true if at least one positional argument has been found.
 Returns the number of positional arguments.
 </p>
 </dd>
+</div>
 </dl>
 <h2 id="commands">
 Commands
@@ -313,6 +349,7 @@ The specified callback function will be called if the command is found. The call
 The following <code>ArgParser</code> methods are also available for processing commands manually:
 </p>
 <dl>
+<div>
 <dt>
 <code>func getCmd() -&gt; String?</code>
 </dt>
@@ -321,6 +358,8 @@ The following <code>ArgParser</code> methods are also available for processing c
 Returns the command name, if the parser has found a command.
 </p>
 </dd>
+</div>
+<div>
 <dt>
 <code>func getCmdParser() -&gt; ArgParser?</code>
 </dt>
@@ -329,6 +368,8 @@ Returns the command name, if the parser has found a command.
 Returns the command's parser instance, if the parser has found a command.
 </p>
 </dd>
+</div>
+<div>
 <dt>
 <code>func getParent() -&gt; ArgParser?</code>
 </dt>
@@ -337,6 +378,8 @@ Returns the command's parser instance, if the parser has found a command.
 Returns a command parser's parent parser.
 </p>
 </dd>
+</div>
+<div>
 <dt>
 <code>func hasCmd() -&gt; Bool</code>
 </dt>
@@ -345,6 +388,7 @@ Returns a command parser's parent parser.
 Returns true if the parser has found a command.
 </p>
 </dd>
+</div>
 </dl>
 
     </article>
