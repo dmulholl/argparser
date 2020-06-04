@@ -1,9 +1,6 @@
 # Janus
 
-A simple argument-parsing library designed for building elegant command-line interfaces.
+A simple argument-parsing library for Swift.
 
-* [Documentation][docs]
-* [Sample Application][sample]
-
-[docs]: http://www.dmulholl.com/docs/janus-swift/
-[sample]: https://github.com/dmulholl/janus-swift/blob/master/Sources/JanusExample/main.swift
+* [Documentation](http://www.dmulholl.com/docs/janus-swift/)
+* [Sample Application](https://github.com/dmulholl/janus-swift/blob/master/Sources/JanusExample/main.swift)
