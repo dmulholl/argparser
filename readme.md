@@ -1,8 +1,8 @@
-# Janus
+# ArgParser
 
-A simple argument-parsing library for Swift.
+A ridiculously simple argument-parsing library for Swift.
 
-* [Documentation](http://www.dmulholl.com/docs/janus-swift/)
-* [Sample Application](https://github.com/dmulholl/janus-swift/blob/master/Sources/JanusExample/main.swift)
+* [Documentation](http://www.dmulholl.com/docs/argparser/dev/)
+* [Basic Example](https://github.com/dmulholl/argparser/blob/master/src/BasicExample/main.swift)
+* [Command Example](https://github.com/dmulholl/argparser/blob/master/src/CommandExample/main.swift)
 
-This project has a successor, [ArgParser](https://github.com/dmulholl/argparser), with an improved interface.

@@ -2,5 +2,7 @@
 # Site Configuration File
 # ------------------------------------------------------------------------------
 
-title = "Janus"
-tagline = "An argument-parsing library for Swift."
+title = "ArgParser"
+tagline = "A ridiculously simple argument-parsing library for Swift."
+version = "Version 2.0.0"
+

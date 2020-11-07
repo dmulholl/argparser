@@ -1,225 +1,175 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>API</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="fonts.css">
-    <link rel="stylesheet" href="graphite.css">
-    <link rel="stylesheet" href="pygments.css">
-    
-    
-  </head>
-
-  <body class="node-api node">
-
-    <header class="masthead">
-      <h1><a href="index.html">Janus</a></h1>
-      
-        <p class="tagline">An argument-parsing library for Swift.</p>
-      
-      
-      <nav class="menu">
-        <input id="menu-check" type="checkbox"/>
-        <label id="menu-label" for="menu-check" class="unselectable">
-          <span class="icon close-icon">✕</span>
-          <span class="icon open-icon">☰</span>
-          <span class="text">Menu</span>
-        </label>
-        <ul>
+    <head>
+        <meta charset="utf-8">
+        <title>API Reference</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/fonts.css">
+        <link rel="stylesheet" href="assets/graphite.css">
+        <link rel="stylesheet" href="assets/pygments.css">
+        
+        
+    </head>
+    <body class="node-api node">
+        <header class="masthead">
+            <h1><a href="index.html">ArgParser</a></h1>
+            
+            <p class="tagline">A ridiculously simple argument-parsing library for Swift.</p>
+            
+            
+            <p class="version">Version 2.0.0</p>
+            
+            <nav class="menu">
+                <input id="menu-check" type="checkbox"/>
+                <label id="menu-label" for="menu-check" class="unselectable">
+                    <span class="icon close-icon">✕</span>
+                    <span class="icon open-icon">☰</span>
+                    <span class="text">Menu</span>
+                </label>
+                <ul>
 <li><a href="index.html">Home</a></li>
+<li><a href="quickstart.html">Quickstart</a></li>
 <li><a href="cli.html">CLI</a></li>
 <li><a href="api.html">API</a></li>
-<li><a href="https://github.com/dmulholl/janus-swift">Source</a></li>
+<li><a href="license.html">License</a></li>
+<li><a href="https://github.com/dmulholl/argparser">Github</a></li>
 </ul>
-      </nav>
-    </header>
-
-    <article class="main">
-      <header class="title">
-        <h1>API</h1>
-        
-        <hr>
-      </header>
-      <ul class="stx-toc">
+            </nav>
+        </header>
+        <article class="main">
+            <header class="title">
+                <h1>API Reference</h1>
+                
+                <hr>
+            </header>
+            <ul class="stx-toc">
 <li>
-<a href="#basic-usage">Basic Usage</a>
+<a href="#setup">Setup</a>
 </li>
 <li>
-<a href="#register-options">Register Options</a>
+<a href="#option-values">Option Values</a>
 </li>
 <li>
-<a href="#retrieve-a-single-value">Retrieve A Single Value</a>
-</li>
-<li>
-<a href="#retrieve-multiple-values">Retrieve Multiple Values</a>
-</li>
-<li>
-<a href="#retrieve-positional-arguments">Retrieve Positional Arguments</a>
+<a href="#positional-arguments">Positional Arguments</a>
 </li>
 <li>
 <a href="#commands">Commands</a>
 </li>
 </ul>
 <hr>
-<p>
-You can add Janus to your application as a dependency using the Swift Package Manager. The repository url is:
-</p>
-<pre>
-https://github.com/dmulholl/janus-swift.git
-</pre>
-<p>
-Alternatively, you can add the single public-domain <code>Janus.swift</code> file directly to your application's source.
-</p>
-<p>
-Janus is written in Swift 4.
-</p>
-<h2 id="basic-usage">
-Basic Usage
-</h2>
-<p>
-Initialize an argument parser, optionally specifying the application's help text and version:
-</p>
-<pre class="lang-swift pygments" data-lang="swift">
-<span class="n">ArgParser</span><span class="p">(</span><span class="n">helptext</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span> <span class="p">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span> <span class="p">=</span> <span class="kc">nil</span><span class="p">)</span>
-</pre>
-<p>
-Supplying help text activates an automatic <code>--help</code> flag; supplying a version string activates an automatic <code>--version</code> flag. (Automatic <code>-h</code> and <code>-v</code> shortcuts are also activated unless registered by other options.)
-</p>
-<p>
-You can now register your application's options and commands on the parser using the registration methods described below. Once the required options and commands have been registered, call the parser's <code>parse()</code> method to process the application's command line arguments:
-</p>
-<pre class="lang-swift pygments" data-lang="swift">
-<span class="n">parser</span><span class="p">.</span><span class="n">parse</span><span class="p">()</span>
-</pre>
-<p>
-Parsed option values can be retrieved from the parser instance itself.
-</p>
-<h2 id="register-options">
-Register Options
-</h2>
-<p>
-Janus supports long-form options, <code>--foo</code>, with single-character shortcuts, <code>-f</code>.
-</p>
-<p>
-An option can have an unlimited number of long and short-form aliases. Aliases are specified via the <code>name</code> parameter which accepts a string of space-separated alternatives, e.g. <code>&quot;foo f&quot;</code>.
-</p>
-<p>
-Option values can be separated on the command line by either a space, <code>--foo 123</code>, or an equals symbol, <code>--foo=123</code>.
-</p>
+<h3 id="setup">
+Setup
+</h3>
 <dl>
 <div>
 <dt>
-<code>func newFlag(_ name: String)</code>
+<code>ArgParser()</code>
 </dt>
 <dd>
 <p>
-Register a flag (a boolean option) with a default value of <code>false</code>. Flag options take no arguments but are either present (<code>true</code>) or absent (<code>false</code>).
+Initializes a new <code>ArgParser</code> instance. All the setup methods below return the parser instance to enable chaining.
 </p>
 </dd>
 </div>
 <div>
 <dt>
-<code>func newDouble(_ name: String, fallback: Double = 0.0)</code>
+<code>.helptext(_ text: String) -&gt; ArgParser</code>
 </dt>
 <dd>
 <p>
-Register a floating-point option, optionally specifying a default value.
+Registers a helptext string for the parser. Supplying a helptext string activates support for an automatic <code>--help</code> flag, also a <code>-h</code> shortcut if not registered by another option.
 </p>
 </dd>
 </div>
 <div>
 <dt>
-<code>func newInt(_ name: String, fallback: Int = 0)</code>
+<code>.version(_ text: String) -&gt; ArgParser</code>
 </dt>
 <dd>
 <p>
-Register an integer option, optionally specifying a default value.
+Registers a version string for the parser. Supplying a version string activates support for an automatic <code>--version</code> flag, also a <code>-v</code> shortcut if not registered by another option.
 </p>
 </dd>
 </div>
 <div>
 <dt>
-<code>func newString(_ name: String, fallback: String = &quot;&quot;)</code>
+<code>.flag(_ name: String) -&gt; ArgParser</code>
 </dt>
 <dd>
 <p>
-Register a string option, optionally specifying a default value.
+Registers a new flag. The <code>name</code> parameter accepts an unlimited number of space-separated aliases and single-character shortcuts.
+</p>
+</dd>
+</div>
+<div>
+<dt>
+<code>.option(_ name: String) -&gt; ArgParser</code>
+</dt>
+<dd>
+<p>
+Registers a new option. The <code>name</code> parameter accepts an unlimited number of space-separated aliases and single-character shortcuts.
+</p>
+</dd>
+</div>
+<div>
+<dt>
+<code>.command(_ name: String, _ cmdParser: ArgParser) -&gt; ArgParser</code>
+</dt>
+<dd>
+<p>
+Registers a new command. The <code>name</code> parameter accepts an unlimited number of space-separated aliases. The command's helptext, flags, and options can be registered on the command's <code>ArgParser</code> instance.
+</p>
+</dd>
+</div>
+<div>
+<dt>
+<code>.callback(_ cb: (String, ArgParser) -&gt; Void) -&gt; ArgParser</code>
+</dt>
+<dd>
+<p>
+Registers a callback function on a command parser. If the command is found the function
+will be called and passed the command's name and the command's <code>ArgParser</code> instance.
 </p>
 </dd>
 </div>
 </dl>
-<h2 id="retrieve-a-single-value">
-Retrieve A Single Value
-</h2>
-<p>
-An option's value can be retrieved from the parser instance using any of its registered aliases.
-</p>
-<p>
-Each option maintains an internal array of values &mdash; the value of the option is the final value in the array or the fallback value if the array is empty.
-</p>
+<h3 id="option-values">
+Option Values
+</h3>
 <dl>
 <div>
 <dt>
-<code>func found(_ name: String) -&gt; Bool</code>
+<code>.found(_ name: String) -&gt; Bool</code>
 </dt>
 <dd>
 <p>
-Returns true if the specified option was found while parsing.
+Returns true if the specified flag or option was found.
 </p>
 </dd>
 </div>
 <div>
 <dt>
-<code>func getFlag(_ name: String) -&gt; Bool</code>
+<code>.count(_ name: String) -&gt; Int</code>
 </dt>
 <dd>
 <p>
-Returns the value of the specified boolean option.
+Returns the number of times the specified flag or option was found.
 </p>
 </dd>
 </div>
 <div>
 <dt>
-<code>func getDouble(_ name: String) -&gt; Double</code>
+<code>.value(_ name: String) -&gt; String?</code>
 </dt>
 <dd>
 <p>
-Returns the value of the specified floating-point option.
+Returns the value of the specified option or <code>nil</code> if the option was not found.
 </p>
 </dd>
 </div>
 <div>
 <dt>
-<code>func getInt(_ name: String) -&gt; Int</code>
-</dt>
-<dd>
-<p>
-Returns the value of the specified integer option.
-</p>
-</dd>
-</div>
-<div>
-<dt>
-<code>func getString(_ name: String) -&gt; String</code>
-</dt>
-<dd>
-<p>
-Returns the value of the specified string option.
-</p>
-</dd>
-</div>
-</dl>
-<h2 id="retrieve-multiple-values">
-Retrieve Multiple Values
-</h2>
-<p>
-An option's internal array of values can be retrieved from the parser instance using any of its registered aliases.
-</p>
-<dl>
-<div>
-<dt>
-<code>func getDoubleList(_ name: String) -&gt; [Double]</code>
+<code>.values(_ name: String) -&gt; [String]</code>
 </dt>
 <dd>
 <p>
@@ -227,173 +177,58 @@ Returns the specified option's list of values.
 </p>
 </dd>
 </div>
-<div>
-<dt>
-<code>func getIntList(_ name: String) -&gt; [Int]</code>
-</dt>
-<dd>
-<p>
-Returns the specified option's list of values.
-</p>
-</dd>
-</div>
-<div>
-<dt>
-<code>func getStringList(_ name: String) -&gt; [String]</code>
-</dt>
-<dd>
-<p>
-Returns the specified option's list of values.
-</p>
-</dd>
-</div>
-<div>
-<dt>
-<code>func lenList(_ name: String) -&gt; Int</code>
-</dt>
-<dd>
-<p>
-Returns the length of the specified option's list of values.
-</p>
-</dd>
-</div>
 </dl>
-<h2 id="retrieve-positional-arguments">
-Retrieve Positional Arguments
-</h2>
-<p>
-Options can be preceded, followed, or interspaced with positional arguments.
-</p>
+<h3 id="positional-arguments">
+Positional Arguments
+</h3>
 <dl>
 <div>
 <dt>
-<code>func getArgs() -&gt; [String]</code>
+<code>.args: [String]</code>
 </dt>
 <dd>
 <p>
-Returns the positional arguments as an array of strings.
-</p>
-</dd>
-</div>
-<div>
-<dt>
-<code>func getArgsAsDoubles() -&gt; [Double]</code>
-</dt>
-<dd>
-<p>
-Attempts to parse and return the positional arguments as an array of doubles. Exits with an error message on failure.
-</p>
-</dd>
-</div>
-<div>
-<dt>
-<code>func getArgsAsInts() -&gt; [Int]</code>
-</dt>
-<dd>
-<p>
-Attempts to parse and return the positional arguments as an array of integers. Exits with an error message on failure.
-</p>
-</dd>
-</div>
-<div>
-<dt>
-<code>func hasArgs() -&gt; Bool</code>
-</dt>
-<dd>
-<p>
-Returns true if at least one positional argument has been found.
-</p>
-</dd>
-</div>
-<div>
-<dt>
-<code>func numArgs() -&gt; Int</code>
-</dt>
-<dd>
-<p>
-Returns the number of positional arguments.
+Stores positional arguments.
 </p>
 </dd>
 </div>
 </dl>
-<h2 id="commands">
+<h3 id="commands">
 Commands
-</h2>
-<p>
-Janus supports git-style command interfaces with arbitrarily-nested commands. Register a command on a parser instance using the <code>newCmd()</code> method:
-</p>
-<pre class="lang-swift pygments" data-lang="swift">
-<span class="kd">func</span> <span class="nf">newCmd</span><span class="p">(</span><span class="kc">_</span> <span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">helptext</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">callback</span><span class="p">:</span> <span class="p">(</span><span class="n">ArgParser</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">ArgParser</span>
-</pre>
-<p>
-This method returns a new <code>ArgParser</code> instance associated with the command. You can register the command's flags and options on this sub-parser using the standard methods listed above. (Note that you never need to call <code>parse()</code> on a command parser &mdash; if a command is found, its arguments are parsed automatically.)
-</p>
-<ul>
-<li>
-<p>
-Like options, commands can have an unlimited number of aliases specified via the <code>name</code> string.
-</p>
-</li>
-<li>
-<p>
-Commands support an automatic <code>--help</code> flag and an automatic <code>help &lt;name&gt;</code> command using the specified help text.
-</p>
-</li>
-<li>
-<p>
-The specified callback function will be called if the command is found. The callback should accept the command's <code>ArgParser</code> instance as its sole argument.
-</p>
-</li>
-</ul>
-<p>
-The following <code>ArgParser</code> methods are also available for processing commands manually:
-</p>
+</h3>
 <dl>
 <div>
 <dt>
-<code>func getCmd() -&gt; String?</code>
+<code>.commandName: String?</code>
 </dt>
 <dd>
 <p>
-Returns the command name, if the parser has found a command.
+Stores the command's name, if a command was found.
 </p>
 </dd>
 </div>
 <div>
 <dt>
-<code>func getCmdParser() -&gt; ArgParser?</code>
+<code>.commandParser: ArgParser?</code>
 </dt>
 <dd>
 <p>
-Returns the command's parser instance, if the parser has found a command.
+Stores the command's <code>ArgParser</code> instance, if a command was found.
 </p>
 </dd>
 </div>
 <div>
 <dt>
-<code>func getParent() -&gt; ArgParser?</code>
+<code>.helpCommand: Bool</code>
 </dt>
 <dd>
 <p>
-Returns a command parser's parent parser.
-</p>
-</dd>
-</div>
-<div>
-<dt>
-<code>func hasCmd() -&gt; Bool</code>
-</dt>
-<dd>
-<p>
-Returns true if the parser has found a command.
+Boolean switch; activates support for an automatic <code>help</code> command which prints subcommand helptext. (Defaults to <code>false</code> but gets toggled to <code>true</code> when a command with helptext is registered.)
 </p>
 </dd>
 </div>
 </dl>
-
-    </article>
-
-    
-
-  </body>
+        </article>
+        
+    </body>
 </html>

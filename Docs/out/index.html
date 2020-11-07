@@ -1,52 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Janus &mdash; an argument-parsing library for Swift</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="fonts.css">
-    <link rel="stylesheet" href="graphite.css">
-    <link rel="stylesheet" href="pygments.css">
-    
-      <meta name="description" content="Janus is an argument-parsing library designed for building elegant command-line interfaces.">
-    
-    
-  </head>
-
-  <body class="node homepage">
-
-    <header class="masthead">
-      <h1><a href="index.html">Janus</a></h1>
-      
-        <p class="tagline">An argument-parsing library for Swift.</p>
-      
-      
-      <nav class="menu">
-        <input id="menu-check" type="checkbox"/>
-        <label id="menu-label" for="menu-check" class="unselectable">
-          <span class="icon close-icon">✕</span>
-          <span class="icon open-icon">☰</span>
-          <span class="text">Menu</span>
-        </label>
-        <ul>
+    <head>
+        <meta charset="utf-8">
+        <title>ArgParser &mdash; a minimalist argument-parsing library for Swift</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/fonts.css">
+        <link rel="stylesheet" href="assets/graphite.css">
+        <link rel="stylesheet" href="assets/pygments.css">
+        
+        
+    </head>
+    <body class="node homepage">
+        <header class="masthead">
+            <h1><a href="index.html">ArgParser</a></h1>
+            
+            <p class="tagline">A ridiculously simple argument-parsing library for Swift.</p>
+            
+            
+            <p class="version">Version 2.0.0</p>
+            
+            <nav class="menu">
+                <input id="menu-check" type="checkbox"/>
+                <label id="menu-label" for="menu-check" class="unselectable">
+                    <span class="icon close-icon">✕</span>
+                    <span class="icon open-icon">☰</span>
+                    <span class="text">Menu</span>
+                </label>
+                <ul>
 <li><a href="index.html">Home</a></li>
+<li><a href="quickstart.html">Quickstart</a></li>
 <li><a href="cli.html">CLI</a></li>
 <li><a href="api.html">API</a></li>
-<li><a href="https://github.com/dmulholl/janus-swift">Source</a></li>
+<li><a href="license.html">License</a></li>
+<li><a href="https://github.com/dmulholl/argparser">Github</a></li>
 </ul>
-      </nav>
-    </header>
-
-    <article class="main">
-      <header class="title">
-        <h1>Home</h1>
-        
-        <hr>
-      </header>
-      <p>
-Janus is an argument-parsing library designed for building elegant command-line interfaces.
-</p>
-<h3 id="features">
+            </nav>
+        </header>
+        <article class="main">
+            <header class="title">
+                <h1>Home</h1>
+                
+                <hr>
+            </header>
+            <h3 id="features">
 Features
 </h3>
 <ul>
@@ -54,8 +50,7 @@ Features
 Long-form boolean flags with single-character shortcuts: <code>--flag</code>, <code>-f</code>.
 </li>
 <li>
-Long-form string, integer, and floating-point options with
-single-character shortcuts: <code>--option &lt;arg&gt;</code>, <code>-o &lt;arg&gt;</code>.
+Long-form string-valued options with single-character shortcuts: <code>--option &lt;arg&gt;</code>, <code>-o &lt;arg&gt;</code>.
 </li>
 <li>
 Condensed short-form options: <code>-abc &lt;arg&gt; &lt;arg&gt;</code>.
@@ -74,23 +69,32 @@ Support for git-style command interfaces with arbitrarily-nested commands.
 Installation
 </h3>
 <p>
-You can add Janus to your application as a dependency using the Swift Package Manager. The repository url is:
+You can add this library to your application as a dependency using the Swift Package Manager. The repository url is:
 </p>
 <pre>
-https://github.com/dmulholl/janus-swift.git
+https://github.com/dmulholl/argparser.git
 </pre>
 <p>
-Alternatively, you can add the single public-domain <code>Janus.swift</code> file directly to your application's source.
+To import the package use:
+</p>
+<pre class="lang-swift pygments" data-lang="swift">
+<span class="kd">import</span> <span class="nc">ArgParser</span>
+</pre>
+<p>
+Alternatively, you can add the single public-domain <code>argparser.swift</code> file directly to your application's source.
 </p>
 <h3 id="links">
 Links
 </h3>
 <ul>
 <li>
-<a href="https://github.com/dmulholl/janus-swift">Github Homepage</a>
+<a href="https://github.com/dmulholl/argparser">Github</a>
 </li>
 <li>
-<a href="https://github.com/dmulholl/janus-swift/blob/master/Sources/JanusExample/main.swift">Sample Application</a>
+<a href="https://github.com/dmulholl/argparser/blob/master/src/BasicExample/main.swift">Basic Example</a>
+</li>
+<li>
+<a href="https://github.com/dmulholl/argparser/blob/master/src/CommandExample/main.swift">Command Example</a>
 </li>
 </ul>
 <h3 id="license">
@@ -99,10 +103,7 @@ License
 <p>
 This work has been placed in the public domain.
 </p>
-
-    </article>
-
-    
-
-  </body>
+        </article>
+        
+    </body>
 </html>

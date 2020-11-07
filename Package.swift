@@ -1,27 +1,31 @@
-// swift-tools-version:4.0
+// swift-tools-version:5.2
 
 import PackageDescription
 
 let package = Package(
-    name: "Janus",
+    name: "argparser",
     products: [
         .library(
-            name: "Janus",
-            targets: ["Janus"]
+            name: "ArgParser",
+            targets: ["ArgParser"]
         ),
     ],
     targets: [
         .target(
-            name: "Janus",
+            name: "ArgParser",
             dependencies: []
         ),
         .target(
-            name: "JanusExample",
-            dependencies: ["Janus"]
+            name: "BasicExample",
+            dependencies: ["ArgParser"]
+        ),
+        .target(
+            name: "CommandExample",
+            dependencies: ["ArgParser"]
         ),
         .testTarget(
-            name: "JanusTests",
-            dependencies: ["Janus"]
+            name: "Tests",
+            dependencies: ["ArgParser"]
         ),
     ]
 )

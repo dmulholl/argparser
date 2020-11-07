@@ -1,20 +1,13 @@
 ---
 title: Home
-meta title: Janus &mdash; an argument-parsing library for Swift
-meta description: >
-    Janus is an argument-parsing library designed for building elegant command-line interfaces.
+meta title: ArgParser &mdash; a minimalist argument-parsing library for Swift
 ---
-
-Janus is an argument-parsing library designed for building elegant command-line interfaces.
-
-
 
 ### Features
 
 * Long-form boolean flags with single-character shortcuts: `--flag`, `-f`.
 
-* Long-form string, integer, and floating-point options with
-  single-character shortcuts: `--option <arg>`, `-o <arg>`.
+* Long-form string-valued options with single-character shortcuts: `--option <arg>`, `-o <arg>`.
 
 * Condensed short-form options: `-abc <arg> <arg>`.
 
@@ -28,22 +21,24 @@ Janus is an argument-parsing library designed for building elegant command-line 
 
 ### Installation
 
-You can add Janus to your application as a dependency using the Swift Package Manager. The repository url is:
+You can add this library to your application as a dependency using the Swift Package Manager. The repository url is:
 
-    https://github.com/dmulholl/janus-swift.git
+    https://github.com/dmulholl/argparser.git
 
-Alternatively, you can add the single public-domain `Janus.swift` file directly to your application's source.
+To import the package use:
+
+::: code swift
+    import ArgParser
+
+Alternatively, you can add the single public-domain `argparser.swift` file directly to your application's source.
 
 
 
 ### Links
 
-* [Github Homepage][github]
-* [Sample Application][sample]
-
-
-[github]: https://github.com/dmulholl/janus-swift
-[sample]: https://github.com/dmulholl/janus-swift/blob/master/Sources/JanusExample/main.swift
+* [Github](https://github.com/dmulholl/argparser)
+* [Basic Example](https://github.com/dmulholl/argparser/blob/master/src/BasicExample/main.swift)
+* [Command Example](https://github.com/dmulholl/argparser/blob/master/src/CommandExample/main.swift)
 
 
 

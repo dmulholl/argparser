@@ -1,0 +1,40 @@
+---
+title: Quickstart Tutorial
+---
+
+Imagine we're building a utility for joining MP3 files, something like [MP3cat](https://github.com/dmulholl/mp3cat).
+We want the user to supply the file names as a list of command line arguments.
+We also want to support an `--out/-o` option so the user can specify an output filename and a `--quiet/-q` flag for turning down the program's verbosity.
+
+::: code swift
+    let parser = ArgParser()
+        .helptext("Usage: mp3cat...")
+        .version("1.0")
+        .option("out o")
+        .flag("quiet q")
+
+That's it, we're done specifying our interface.
+Now we can parse the program's arguments:
+
+::: code swift
+    parser.parse()
+
+This will exit with a suitable error message for the user if anything goes wrong. Now we can check if the `--quiet` flag was found:
+
+::: code swift
+    if parser.found("quiet") {
+        doStuff()
+    }
+
+And determine our output filepath:
+
+::: code swift
+    let filepath = parser.value("out") ?? "output.mp3"
+
+The input filenames will be collected by the parser into an array of positional arguments:
+
+::: code swift
+    for filename in parser.args {
+        doStuff()
+    }
+
