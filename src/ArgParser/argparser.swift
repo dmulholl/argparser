@@ -239,7 +239,7 @@ public class ArgParser {
             if stream.hasNext() {
                 option.values.append(stream.next())
             } else {
-                exitError("missing value for --\(arg)")
+                exitError("missing value for the '--\(arg)' option")
             }
         } else if arg == "help" && _helptext != nil {
             exitHelp()
@@ -264,9 +264,9 @@ public class ArgParser {
                 if stream.hasNext() {
                     option.values.append(stream.next())
                 } else if arg.count > 1 {
-                    exitError("missing value for '\(char)' in -\(arg)")
+                    exitError("missing value for the '\(char)' option in -\(arg)")
                 } else {
-                    exitError("missing value for -\(arg)")
+                    exitError("missing value for the '-\(arg)' option")
                 }
             } else if char == "h" && _helptext != nil {
                 exitHelp()
@@ -291,7 +291,7 @@ public class ArgParser {
         }
 
         guard value != "" else {
-            exitError("missing value for \(prefix)\(name)")
+            exitError("missing value for the '\(prefix)\(name)' option")
         }
 
         option.values.append(value)
