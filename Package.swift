@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "argparser",
+    name: "ArgParser",
     products: [
         .library(
             name: "ArgParser",
