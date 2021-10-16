@@ -1,7 +1,11 @@
 ---
 title: Home
-meta title: ArgParser &mdash; a minimalist argument-parsing library for Swift
+meta title: ArgParser &mdash; a ridiculously simple argument-parsing library for Swift
 ---
+
+ArgParser is a minimalist Swift library for parsing command line arguments.
+
+
 
 ### Features
 
