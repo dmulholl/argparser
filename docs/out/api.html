@@ -17,7 +17,7 @@
                 <p class="tagline">A ridiculously simple argument-parsing library for Swift.</p>
             
             
-                <p class="version">Version 2.0.0</p>
+                <p class="version">Version 3.0.0</p>
             
             <nav class="menu">
                 <input id="menu-check" type="checkbox"/>
@@ -44,7 +44,13 @@
             </header>
             <ul class="stx-toc">
 <li>
+<a href="#initialization">Initialization</a>
+</li>
+<li>
 <a href="#setup">Setup</a>
+</li>
+<li>
+<a href="#parsing">Parsing</a>
 </li>
 <li>
 <a href="#option-values">Option Values</a>
@@ -57,8 +63,8 @@
 </li>
 </ul>
 <hr>
-<h3 id="setup">
-Setup
+<h3 id="initialization">
+Initialization
 </h3>
 <dl>
 <div>
@@ -67,10 +73,16 @@ Setup
 </dt>
 <dd>
 <p>
-Initializes a new <code>ArgParser</code> instance. All the setup methods below return the parser instance to enable chaining.
+Initializes a new <code>ArgParser</code> instance.
+All the setup methods below return the parser instance to enable chaining.
 </p>
 </dd>
 </div>
+</dl>
+<h3 id="setup">
+Setup
+</h3>
+<dl>
 <div>
 <dt>
 <code>.helptext(_ text: String) -&gt; ArgParser</code>
@@ -129,6 +141,32 @@ Registers a new command. The <code>name</code> parameter accepts an unlimited nu
 <p>
 Registers a callback function on a command parser. If the command is found the function
 will be called and passed the command's name and the command's <code>ArgParser</code> instance.
+</p>
+</dd>
+</div>
+<div>
+<dt>
+<code>.enableHelpCommand(_ enable: Bool) -&gt; ArgParser</code>
+</dt>
+<dd>
+<p>
+This boolean switch toggles support for an automatic <code>help</code> command that prints subcommand helptext. The value defaults to <code>false</code> but gets toggled automatically to <code>true</code> whenever a command is registered. You can use this method to disable the feature if required.
+</p>
+</dd>
+</div>
+</dl>
+<h3 id="parsing">
+Parsing
+</h3>
+<dl>
+<div>
+<dt>
+<code>.parse(_ args: [String]? = nil)</code>
+</dt>
+<dd>
+<p>
+Parses an array of arguments.
+Defaults to parsing the application's command line arguments.
 </p>
 </dd>
 </div>
@@ -214,16 +252,6 @@ Stores the command's name, if a command was found.
 <dd>
 <p>
 Stores the command's <code>ArgParser</code> instance, if a command was found.
-</p>
-</dd>
-</div>
-<div>
-<dt>
-<code>.helpCommand: Bool</code>
-</dt>
-<dd>
-<p>
-Boolean switch; activates support for an automatic <code>help</code> command which prints subcommand helptext. (Defaults to <code>false</code> but gets toggled to <code>true</code> when a command with helptext is registered.)
 </p>
 </dd>
 </div>
