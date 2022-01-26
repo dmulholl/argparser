@@ -9,8 +9,8 @@ fileprivate func writeStderr(_ string: String) {
 }
 
 
-/// Prints an error message and exits with a non-zero status code.
-fileprivate func exitError(_ message: String) -> Never {
+/// Exits with an error message and a non-zero status code.
+fileprivate func exitWithError(_ message: String) -> Never {
     writeStderr("Error: " + message + ".\n")
     exit(1)
 }
@@ -57,17 +57,15 @@ public class ArgParser {
     private var flags = [String:Flag]()
     private var commands = [String:ArgParser]()
     private var commandCallback: ((String, ArgParser) -> Void)?
+    private var _enableHelpCommand = false
 
     public init() {}
 
-    /// Stores the command name, if a command was found.
+    /// If a command was found, stores the command name.
     public var commandName: String?
 
-    /// Stores the command's parser instance, if a command was found.
+    /// If a comand was found, stores the command's parser instance.
     public var commandParser: ArgParser?
-
-    /// Boolean switch. Activates support for the automatic `help` command.
-    public var helpCommand = false
 
     /// Stores positional arguments.
     public var args = [String]()
@@ -110,7 +108,7 @@ public class ArgParser {
             commands[String(alias)] = commandParser
         }
         if commandParser._helptext != nil {
-            helpCommand = true
+            _enableHelpCommand = true
         }
         return self
     }
@@ -119,6 +117,13 @@ public class ArgParser {
     /// will be called and passed the command name and the command's ArgParser instance.
     public func callback(_ cb: @escaping (String, ArgParser) -> Void) -> ArgParser {
         commandCallback = cb
+        return self
+    }
+
+    /// Boolean switch. Toggles support for an automatic `help` command that prints subcommand
+    /// help text.
+    public func enableHelpCommand(_ enable: Bool) -> ArgParser {
+        _enableHelpCommand = enable
         return self
     }
 
@@ -133,7 +138,7 @@ public class ArgParser {
         } else if let option = options[name] {
             return option.values.count
         } else {
-            exitError("'\(name)' is not a registered flag or option name")
+            exitWithError("'\(name)' is not a registered flag or option name")
         }
     }
 
@@ -147,7 +152,7 @@ public class ArgParser {
         if let option = options[name] {
             return option.values.last
         }
-        exitError("'\(name)' is not a registered option name")
+        exitWithError("'\(name)' is not a registered option name")
     }
 
     /// Returns the specified option's list of values.
@@ -155,7 +160,7 @@ public class ArgParser {
         if let option = options[name] {
             return option.values
         }
-        exitError("'\(name)' is not a registered option name")
+        exitWithError("'\(name)' is not a registered option name")
     }
 
     // ---------------------------------------------------------------------
@@ -170,7 +175,7 @@ public class ArgParser {
 
     /// Parse a stream of strings.
     private func parseStream(_ stream: ArgStream) {
-        var is_first_arg = true
+        var isFirstArg = true
 
         while stream.hasNext() {
             let arg = stream.next()
@@ -199,7 +204,7 @@ public class ArgParser {
             }
 
             // Is the argument a registered command?
-            else if is_first_arg, let parser = commands[arg] {
+            else if isFirstArg, let parser = commands[arg] {
                 commandName = arg
                 commandParser = parser
                 parser.parseStream(stream)
@@ -207,16 +212,16 @@ public class ArgParser {
             }
 
             // Is the argument an automatic 'help' command?
-            else if is_first_arg && helpCommand && arg == "help" {
+            else if isFirstArg && _enableHelpCommand && arg == "help" {
                 if stream.hasNext() {
                     let name = stream.next()
                     if let parser = commands[name] {
-                        parser.exitHelp()
+                        parser.exitWithHelptext()
                     } else {
-                        exitError("'\(name)' is not a recognised command name")
+                        exitWithError("'\(name)' is not a recognised command name")
                     }
                 } else {
-                    exitError("the help command requires an argument")
+                    exitWithError("the help command requires an argument")
                 }
             }
 
@@ -225,7 +230,7 @@ public class ArgParser {
                 args.append(arg)
             }
 
-            is_first_arg = false
+            isFirstArg = false
         }
     }
 
@@ -239,14 +244,14 @@ public class ArgParser {
             if stream.hasNext() {
                 option.values.append(stream.next())
             } else {
-                exitError("missing value for the '--\(arg)' option")
+                exitWithError("missing value for the '--\(arg)' option")
             }
         } else if arg == "help" && _helptext != nil {
-            exitHelp()
+            exitWithHelptext()
         } else if arg == "version" && _version != nil {
-            exitVersion()
+            exitWithVersion()
         } else {
-            exitError("--\(arg) is not a recognised flag or option name")
+            exitWithError("--\(arg) is not a recognised flag or option name")
         }
     }
 
@@ -264,18 +269,18 @@ public class ArgParser {
                 if stream.hasNext() {
                     option.values.append(stream.next())
                 } else if arg.count > 1 {
-                    exitError("missing value for the '\(char)' option in -\(arg)")
+                    exitWithError("missing value for the '\(char)' option in -\(arg)")
                 } else {
-                    exitError("missing value for the '-\(arg)' option")
+                    exitWithError("missing value for the '-\(arg)' option")
                 }
             } else if char == "h" && _helptext != nil {
-                exitHelp()
+                exitWithHelptext()
             } else if char == "v" && _version != nil {
-                exitVersion()
+                exitWithVersion()
             } else if arg.count > 1 {
-                exitError("'\(char)' in -\(arg) is not a recognised flag or option name")
+                exitWithError("'\(char)' in -\(arg) is not a recognised flag or option name")
             } else {
-                exitError("-\(arg) is not a recognised flag or option name")
+                exitWithError("-\(arg) is not a recognised flag or option name")
             }
         }
     }
@@ -287,11 +292,11 @@ public class ArgParser {
         let value = String(split[1])
 
         guard let option = options[name] else {
-            exitError("\(prefix)\(name) is not a recognised option name")
+            exitWithError("\(prefix)\(name) is not a recognised option name")
         }
 
         guard value != "" else {
-            exitError("missing value for the '\(prefix)\(name)' option")
+            exitWithError("missing value for the '\(prefix)\(name)' option")
         }
 
         option.values.append(value)
@@ -302,13 +307,13 @@ public class ArgParser {
     // ---------------------------------------------------------------------
 
     /// Prints the parser's help text and exits.
-    public func exitHelp() -> Never {
+    public func exitWithHelptext() -> Never {
         print(_helptext ?? "")
         exit(0)
     }
 
     /// Prints the parser's version string and exits.
-    public func exitVersion() -> Never {
+    public func exitWithVersion() -> Never {
         print(_version ?? "")
         exit(0)
     }
