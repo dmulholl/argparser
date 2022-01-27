@@ -84,7 +84,8 @@ public class ArgParser {
         return self
     }
 
-    /// Registers a new flag.
+    /// Registers a new flag. The `name` parameter accepts an unlimited number of space-separated
+    /// aliases and single-character shortcuts.
     public func flag(_ name: String) -> ArgParser {
         let flag = Flag()
         for alias in name.split(separator: " ") {
@@ -93,7 +94,8 @@ public class ArgParser {
         return self
     }
 
-    /// Registers a new option.
+    /// Registers a new option. The `name` parameter accepts an unlimited number of space-separated
+    /// aliases and single-character shortcuts.
     public func option(_ name: String) -> ArgParser {
         let option = Option()
         for alias in name.split(separator: " ") {
@@ -102,7 +104,8 @@ public class ArgParser {
         return self
     }
 
-    /// Registers a new command.
+    /// Registers a new command. The `name` parameter accepts an unlimited number of space-separated
+    /// aliases and single-character shortcuts.
     public func command(_ name: String, _ commandParser: ArgParser) -> ArgParser {
         for alias in name.split(separator: " ") {
             commands[String(alias)] = commandParser
@@ -244,7 +247,7 @@ public class ArgParser {
             if stream.hasNext() {
                 option.values.append(stream.next())
             } else {
-                exitWithError("missing value for the '--\(arg)' option")
+                exitWithError("missing value for '--\(arg)' option")
             }
         } else if arg == "help" && _helptext != nil {
             exitWithHelptext()
@@ -269,9 +272,9 @@ public class ArgParser {
                 if stream.hasNext() {
                     option.values.append(stream.next())
                 } else if arg.count > 1 {
-                    exitWithError("missing value for the '\(char)' option in -\(arg)")
+                    exitWithError("missing value for '\(char)' option in -\(arg)")
                 } else {
-                    exitWithError("missing value for the '-\(arg)' option")
+                    exitWithError("missing value for '-\(arg)' option")
                 }
             } else if char == "h" && _helptext != nil {
                 exitWithHelptext()
@@ -296,7 +299,7 @@ public class ArgParser {
         }
 
         guard value != "" else {
-            exitWithError("missing value for the '\(prefix)\(name)' option")
+            exitWithError("missing value for '\(prefix)\(name)' option")
         }
 
         option.values.append(value)
