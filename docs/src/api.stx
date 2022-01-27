@@ -8,7 +8,7 @@ title: API Reference
 
 ### Initialization
 
-[[ `ArgParser()` ]]
+[[ `ArgParser() -> ArgParser` ]]
 
     Initializes a new `ArgParser` instance.
     All the setup methods below return the parser instance to enable chaining.
@@ -44,7 +44,7 @@ title: API Reference
 
 [[ `.enableHelpCommand(_ enable: Bool) -> ArgParser` ]]
 
-    This boolean switch toggles support for an automatic `help` command that prints subcommand helptext. The value defaults to `false` but gets toggled automatically to `true` whenever a command is registered. You can use this method to disable the feature if required.
+    This boolean switch toggles support for an automatic `help` command that prints subcommand helptext. The value defaults to `false` but gets toggled automatically to `true` whenever a command with helptext is registered. You can use this method to disable the feature if required.
 
 
 
@@ -74,6 +74,7 @@ title: API Reference
 [[ `.values(_ name: String) -> [String]` ]]
 
     Returns the specified option's list of values.
+    This will be empty if the option was not found.
 
 
 
@@ -82,6 +83,7 @@ title: API Reference
 [[ `.args: [String]` ]]
 
     Stores positional arguments.
+    This will be empty if no positional arguments were found.
 
 
 

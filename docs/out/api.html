@@ -69,7 +69,7 @@ Initialization
 <dl>
 <div>
 <dt>
-<code>ArgParser()</code>
+<code>ArgParser() -&gt; ArgParser</code>
 </dt>
 <dd>
 <p>
@@ -150,7 +150,7 @@ will be called and passed the command's name and the command's <code>ArgParser</
 </dt>
 <dd>
 <p>
-This boolean switch toggles support for an automatic <code>help</code> command that prints subcommand helptext. The value defaults to <code>false</code> but gets toggled automatically to <code>true</code> whenever a command is registered. You can use this method to disable the feature if required.
+This boolean switch toggles support for an automatic <code>help</code> command that prints subcommand helptext. The value defaults to <code>false</code> but gets toggled automatically to <code>true</code> whenever a command with helptext is registered. You can use this method to disable the feature if required.
 </p>
 </dd>
 </div>
@@ -212,6 +212,7 @@ Returns the value of the specified option or <code>nil</code> if the option was 
 <dd>
 <p>
 Returns the specified option's list of values.
+This will be empty if the option was not found.
 </p>
 </dd>
 </div>
@@ -227,6 +228,7 @@ Positional Arguments
 <dd>
 <p>
 Stores positional arguments.
+This will be empty if no positional arguments were found.
 </p>
 </dd>
 </div>
