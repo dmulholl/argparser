@@ -10,7 +10,7 @@ title: Command Line Interface
 
 An option can have an unlimited number of long-form aliases and single-character shortcuts: `--option`, `-o`.
 
-Option values can be separated by either a space, `--opt 123`, or an equals symbol, `--opt=123`. Either syntax can be used with shortcuts: `-o 123`, `-o=123`.
+Option values can be separated by either a space, `--option 123`, or an equals symbol, `--option=123`. Either syntax can be used with shortcuts: `-o 123`, `-o=123`.
 
 Multiple shortcuts can be condensed into a single block, e.g. `-abc foo bar`. Trailing arguments are consumed in sequence as required by the options.
 
@@ -22,7 +22,7 @@ Options can be treated as singular or multivalued as circumstances require. Each
 
 For example, in the command below:
 
-    $ myapp --foo abc --foo def
+    $ my_app --foo abc --foo def
 
 the value of the option `foo` is `"def"` but the array `["abc", "def"]` is also available for use if required.
 
@@ -42,15 +42,29 @@ The parser supports the standard `--` switch for turning off option-parsing. All
 
 
 
+### Quoted Values
+
+Note that you can use quotes to surround argument and option values containing spaces, e.g.
+
+::: code
+    $ my_app "arg 1" "arg 2"
+    $ my_app --option "value with spaces"
+    $ my_app --option="value with spaces"
+    $ my_app -o="value with spaces"
+
+This isn't a feature of the library --- the quotes are processed by the shell and the library only sees the resulting string values, including spaces.
+
+
+
 ### Commands
 
 This library supports git-style command interfaces with arbitrarily-nested commands. Commands have builtin support for an automatic `--help` flag and an automatic `help <cmd>` command, i.e. the commands
 
-    $ myapp <cmd> --help
+    $ my_app <cmd> --help
 
 and
 
-    $ myapp help <cmd>
+    $ my_app help <cmd>
 
 are functionally identical and will both print the help text registered with the command.
 
